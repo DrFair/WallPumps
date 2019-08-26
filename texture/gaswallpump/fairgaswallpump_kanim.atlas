@@ -20,14 +20,14 @@ base
   index: 0
 place
   rotate: false
-  xy: 128, 15
-  size: 114, 111
-  orig: 114, 111
+  xy: 128, 128
+  size: 124, 124
+  orig: 124, 124
   offset: 0, 0
   index: 0
 ui
   rotate: false
-  xy: 128, 128
+  xy: 128, 2
   size: 124, 124
   orig: 124, 124
   offset: 0, 0
