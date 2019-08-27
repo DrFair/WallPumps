@@ -25,6 +25,7 @@ namespace WallPumps
     [HarmonyPatch("GetSampleCell")]
     public static class ElementConsumer_GetSampleCell_Patch
     {
+        [HarmonyPriority(-10000)] // Extremely low priority. We want this to happen last, since this will only overwrite RotatableElementConsumer variable
         public static void Prefix(ElementConsumer __instance)
         {
             if (__instance is RotatableElementConsumer)

@@ -19,6 +19,7 @@ namespace WallPumps
     [HarmonyPatch(new Type[] { typeof(Element.State), typeof(int) })]
     public static class Pump_IsPumpable_Patch
     {
+        [HarmonyPriority(-10000)] // Extremely low priority. We want this to happen last, since this will only overwrite RotateablePump results
         public static void Postfix(Pump __instance, ref bool __result, Element.State expected_state)
         {
             if (__instance is RotateablePump)
