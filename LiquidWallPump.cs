@@ -38,7 +38,7 @@ namespace WallPumps
             BuildingTemplates.CreateFoundationTileDef(def);
 
             def.RequiresPowerInput = true;
-            def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().wallGasPumpEnergy;
+            def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().wallLiquidPumpEnergy;
             def.ExhaustKilowattsWhenActive = 0f;
             def.SelfHeatKilowattsWhenActive = 0f;
             def.OutputConduitType = ConduitType.Liquid;
