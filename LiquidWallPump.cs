@@ -38,7 +38,7 @@ namespace WallPumps
             BuildingTemplates.CreateFoundationTileDef(def);
 
             def.RequiresPowerInput = true;
-            def.EnergyConsumptionWhenActive = 120f;
+            def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().wallGasPumpEnergy;
             def.ExhaustKilowattsWhenActive = 0f;
             def.SelfHeatKilowattsWhenActive = 0f;
             def.OutputConduitType = ConduitType.Liquid;
@@ -86,10 +86,10 @@ namespace WallPumps
             go.AddOrGet<EnergyConsumer>();
             go.AddOrGet<RotateablePump>();
             Storage storage = go.AddOrGet<Storage>();
-            storage.capacityKg = 1f;
+            storage.capacityKg = WallPumpsConfig.GetConfig().wallLiquidPumpRate * 2;
             RotatableElementConsumer elementConsumer = go.AddOrGet<RotatableElementConsumer>();
             elementConsumer.configuration = ElementConsumer.Configuration.AllLiquid;
-            elementConsumer.consumptionRate = 4f;
+            elementConsumer.consumptionRate = WallPumpsConfig.GetConfig().wallLiquidPumpRate;
             elementConsumer.storeOnConsume = true;
             elementConsumer.showInStatusPanel = false;
             elementConsumer.rotatableCellOffset = new Vector3(0, 1);
