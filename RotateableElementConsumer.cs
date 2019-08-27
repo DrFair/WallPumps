@@ -9,12 +9,12 @@ using Harmony;
 
 namespace WallPumps
 {
-    // This is pretty much an exact copy of decompiled ElementConsumer, but with an altered GetSampleCell(), since it's private in that one
 
     [SkipSaveFileSerialization]
     [SerializationConfig(MemberSerialization.OptIn)]
     public class RotatableElementConsumer : ElementConsumer
     {
+        // When using this, remember to always use RotateablePump too instead of Pump
         [SerializeField]
         public Vector3 rotatableCellOffset; // Set this instead, since sampleCellOffset will be constantly overridden
     }

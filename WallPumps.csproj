@@ -55,13 +55,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBuilding.cs" />
+    <Compile Include="FairONI\AddBuilding.cs" />
+    <Compile Include="FairONI\ConfigManager.cs" />
+    <Compile Include="FairONI\FairONI.cs" />
     <Compile Include="LiquidWallPump.cs" />
     <Compile Include="GasWallPump.cs" />
     <Compile Include="ModInfo.cs" />
     <Compile Include="RotateableElementConsumer.cs" />
-    <Compile Include="WallPumps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RotateablePump.cs" />
+    <Compile Include="WallPumps.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
