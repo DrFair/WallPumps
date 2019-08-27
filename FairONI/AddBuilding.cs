@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using TUNING;
 
-namespace WallPumps
+namespace FairONI
 {
     public static class AddBuilding
     {
