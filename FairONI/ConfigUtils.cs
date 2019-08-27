@@ -8,10 +8,16 @@ namespace FairONI
     public static class ConfigUtils
     {
 
+        public static string GetConfigDirectoryPath()
+        {
+            string pathSeperator = Path.DirectorySeparatorChar.ToString();
+            return Path.Combine(Util.RootFolder(), "mods" + pathSeperator + "settings");
+        }
+
         public static string GetConfigFilePath(string modName)
         {
             string pathSeperator = Path.DirectorySeparatorChar.ToString();
-            return Path.Combine(Util.RootFolder(), "mods" + pathSeperator + "settings" + pathSeperator + modName + ".json");
+            return Path.Combine(GetConfigDirectoryPath(), modName + ".json");
         }
 
         // Look at https://docs.unity3d.com/Manual/JSONSerialization.html for serializeableObject limitations
@@ -43,6 +49,7 @@ namespace FairONI
         {
             try
             {
+                Directory.CreateDirectory(GetConfigDirectoryPath());
                 string json = JsonUtility.ToJson(serializeableObject, true);
                 File.WriteAllText(GetConfigFilePath(modName), json);
             }
