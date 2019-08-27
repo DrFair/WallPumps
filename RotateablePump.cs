@@ -21,12 +21,11 @@ namespace WallPumps
     {
         public static void Postfix(Pump __instance, ref bool __result, Element.State expected_state)
         {
-            Debug.Log("IsPumpable call " + expected_state + ", " + __result + ", " + __instance);
             if (__instance is RotateablePump)
             {
                 Rotatable rotatable = __instance.GetComponent<Rotatable>();
                 RotatableElementConsumer consumer = __instance.GetComponent<RotatableElementConsumer>();
-                Debug.Log("IsPumpable call " + consumer.rotatableCellOffset + ", " + consumer.sampleCellOffset);
+                //Debug.Log("IsPumpable call " + consumer.rotatableCellOffset + ", " + consumer.sampleCellOffset);
                 // Basically a copy of vanilla Pump IsPumpable, but with different initial
                 int num = Grid.PosToCell(__instance.transform.GetPosition() + Rotatable.GetRotatedOffset(consumer.rotatableCellOffset, rotatable.GetOrientation()));
                 for (int i = 0; i < consumer.consumptionRadius; i++)
