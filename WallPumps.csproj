@@ -60,7 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FairONI\AddBuilding.cs" />
+    <Compile Include="FairONI\AddTags.cs" />
     <Compile Include="FairONI\ConfigUtils.cs" />
+    <Compile Include="FairONI\ElementUtils.cs" />
     <Compile Include="FairONI\FairONI.cs" />
     <Compile Include="LiquidWallPump.cs" />
     <Compile Include="GasWallPump.cs" />
