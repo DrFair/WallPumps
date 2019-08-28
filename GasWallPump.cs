@@ -38,7 +38,6 @@ namespace WallPumps
                 0.2f);
             BuildingTemplates.CreateFoundationTileDef(def);
 
-            def.ThermalConductivity = WallPumpsConfig.GetConfig().thermalConductivity;
             def.RequiresPowerInput = true;
             def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().wallGasPumpEnergy;
             def.ExhaustKilowattsWhenActive = 0f;
@@ -51,6 +50,8 @@ namespace WallPumps
             def.UtilityOutputOffset = new CellOffset(0, 0);
             def.PermittedRotations = PermittedRotations.R360;
             // Tile properties
+            def.ThermalConductivity = WallPumpsConfig.GetConfig().thermalConductivity;
+            def.UseStructureTemperature = false;
             def.Entombable = false;
             def.BaseTimeUntilRepair = -1f;
             def.ObjectLayer = ObjectLayer.Building;
@@ -64,6 +65,7 @@ namespace WallPumps
         {
             SimCellOccupier simCellOccupier = go.AddOrGet<SimCellOccupier>();
             simCellOccupier.notifyOnMelt = true;
+            go.AddOrGet<Insulator>();
             go.AddOrGet<TileTemperature>();
             BuildingHP buildingHP = go.AddOrGet<BuildingHP>();
             buildingHP.destroyOnDamaged = true;
