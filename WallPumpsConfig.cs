@@ -23,6 +23,8 @@ namespace WallPumps
         public float wallLiquidPumpEnergy = 120f;
         public float wallLiquidPumpRate = 4f;
 
+        public float thermalConductivity = 1f;
+
         // Example of child json object in config file. Remember object must be [Serializable] aswell.
         //public Dictionary<string, object> jsonObject = new Dictionary<string, object>();
     }

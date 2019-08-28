@@ -37,6 +37,7 @@ namespace WallPumps
                 0.2f);
             BuildingTemplates.CreateFoundationTileDef(def);
 
+            def.ThermalConductivity = WallPumpsConfig.GetConfig().thermalConductivity;
             def.RequiresPowerInput = true;
             def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().wallLiquidPumpEnergy;
             def.ExhaustKilowattsWhenActive = 0f;
