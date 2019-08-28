@@ -1,3 +1,7 @@
+v. 1.6
+Added thermalConductivity to config file. Reduce to make pumps more insulated.
+Added insulation as construction material for late game pumps.
+
 v. 1.5
 Fixed error messages showing up when people have problems with config files. This does not fix the root problem, but will just remove the errors.
 
