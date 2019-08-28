@@ -38,8 +38,8 @@ namespace FairONI
             }
             catch (Exception e)
             {
-                Debug.LogError("Error loading " + modName + " config:");
-                Debug.LogError(e);
+                Debug.Log("Error loading " + modName + " config:");
+                Debug.Log(e);
             }
         }
 
@@ -55,8 +55,8 @@ namespace FairONI
             }
             catch (Exception e)
             {
-                Debug.LogError("Error saving " + modName + " config:");
-                Debug.LogError(e);
+                Debug.Log("Error saving " + modName + " config:");
+                Debug.Log(e);
             }
         }
     }
