@@ -20,16 +20,15 @@ namespace FairONI
                 if (list != null) index = list.IndexOf(parentID);
                 if (index == -1)
                 {
-                    Console.WriteLine(string.Concat(new object[]
-                    {
-                    "ERROR: Building \"",
-                    parentID,
-                    "\" not found in category ",
-                    category,
-                    ". Placing ",
-                    buildingID,
-                    " at the end of the list"
-                    }));
+                    Console.WriteLine(
+                        "ERROR: Building \"",
+                        parentID,
+                        "\" not found in category ",
+                        category,
+                        ". Placing ",
+                        buildingID,
+                        " at the end of the list"
+                    );
                 } else
                 {
                     index++; // Next index
@@ -58,13 +57,12 @@ namespace FairONI
             int num = BUILDINGS.PLANORDER.FindIndex(x => x.category == category);
             if (num == -1)
             {
-                Console.WriteLine(string.Concat(new object[]
-                {
+                Console.WriteLine(
                     "ERROR: Can't add building ",
                     buildingID,
                     " to non-existing category ",
                     category
-                }));
+                );
             }
             return num;
         }
@@ -81,41 +79,36 @@ namespace FairONI
             int num = BUILDINGS.PLANORDER.FindIndex((PlanScreen.PlanInfo x) => x.category == category);
             if (num == -1)
             {
-                Console.WriteLine(string.Concat(new object[]
-                {
+                Console.WriteLine(
                     "ERROR: Can't add building ",
                     buildingID,
                     " to non-existing category ",
                     category
-                }));
+                );
             }
             return num;
         }
 
         public static void AddStrings(string ID, string name, string description, string effect)
         {
-            Strings.Add(new string[]
-            {
+            Strings.Add(
                 "STRINGS.BUILDINGS.PREFABS." + ID.ToUpperInvariant() + ".NAME",
-                string.Concat(new string[]
-                {
+                string.Concat(
                     "<link=\"",
                     ID,
                     "\">",
                     name,
                     "</link>"
-                })
-            });
-            Strings.Add(new string[]
-            {
+                )
+            );
+            Strings.Add(
                 "STRINGS.BUILDINGS.PREFABS." + ID.ToUpperInvariant() + ".DESC",
                 description
-            });
-            Strings.Add(new string[]
-            {
+            );
+            Strings.Add(
                 "STRINGS.BUILDINGS.PREFABS." + ID.ToUpperInvariant() + ".EFFECT",
                 effect
-            });
+            );
         }
     }
 }
