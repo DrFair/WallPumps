@@ -1,0 +1,8 @@
+Ideas:
+Config for insulation.
+	Set buildingDef.ThermalConductivity (defaults to 1)
+Able to build over a pump (replace it like walls).
+
+Other mod ideas:
+Wall vents, for both gas and liquid.
+Wall tempature flow.
