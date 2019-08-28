@@ -35,6 +35,8 @@ namespace FairONI
                 }
                 string json = File.ReadAllText(filePath);
                 JsonUtility.FromJsonOverwrite(json, serializeableObject);
+                // Save the config file again, since it may have changed
+                SaveConfig(modName, serializeableObject);
             }
             catch (Exception e)
             {
