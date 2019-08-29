@@ -40,12 +40,12 @@ namespace WallPumps
         }
     }
 
-    //[HarmonyPatch(typeof(Game), "OnPrefabInit")]
-    //public static class Game_OnPrefabInit_Patch
-    //{
-    //    public static void Postfix(Game __instance)
-    //    {
-    //        Debug.Log(" === WallPumps Postfix === ");
-    //    }
-    //}
+    [HarmonyPatch(typeof(Game), "OnPrefabInit")]
+    public static class Game_OnPrefabInit_Patch
+    {
+        public static void Postfix(Game __instance)
+        {
+            Debug.Log(" === WallPumps v. 1.6 OnPrefabInit === ");
+        }
+    }
 }
