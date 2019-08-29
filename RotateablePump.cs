@@ -3,7 +3,7 @@ using Harmony;
 
 namespace WallPumps
 {
-    public class RotateablePump : Pump
+    public class RotatablePump : Pump
     {
         // Had to create this, since vanilla pump doesn't take rotation into account when getting if it's currently pumpable
     }
@@ -15,10 +15,10 @@ namespace WallPumps
     [HarmonyPatch(new Type[] { typeof(Element.State), typeof(int) })]
     public static class Pump_IsPumpable_Patch
     {
-        [HarmonyPriority(-10000)] // Extremely low priority. We want this to happen last, since this will only overwrite RotateablePump results
+        [HarmonyPriority(-10000)] // Extremely low priority. We want this to happen last, since this will only overwrite RotatablePump results
         public static void Postfix(Pump __instance, ref bool __result, Element.State expected_state)
         {
-            if (__instance is RotateablePump)
+            if (__instance is RotatablePump)
             {
                 Rotatable rotatable = __instance.GetComponent<Rotatable>();
                 RotatableElementConsumer consumer = __instance.GetComponent<RotatableElementConsumer>();

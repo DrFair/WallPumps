@@ -9,7 +9,7 @@ namespace WallPumps
     [SerializationConfig(MemberSerialization.OptIn)]
     public class RotatableElementConsumer : ElementConsumer
     {
-        // When using this, remember to always use RotateablePump too instead of Pump
+        // When using this, remember to always use RotatablePump too instead of Pump
         [SerializeField]
         public Vector3 rotatableCellOffset; // Set this instead, since sampleCellOffset will be constantly overridden
     }
