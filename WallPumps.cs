@@ -19,6 +19,9 @@ namespace WallPumps
 
             GasWallPump.Setup();
             LiquidWallPump.Setup();
+            GasWallVent.Setup();
+            GasWallPressureVent.Setup();
+            LiquidWallVent.Setup();
         }
     }
 

@@ -64,10 +64,14 @@
     <Compile Include="FairONI\ConfigUtils.cs" />
     <Compile Include="FairONI\ElementUtils.cs" />
     <Compile Include="FairONI\FairONI.cs" />
+    <Compile Include="LiquidWallVent.cs" />
+    <Compile Include="GasWallPressureVent.cs" />
+    <Compile Include="GasWallVent.cs" />
     <Compile Include="LiquidWallPump.cs" />
     <Compile Include="GasWallPump.cs" />
     <Compile Include="RotateableElementConsumer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RotateableExhaust.cs" />
     <Compile Include="RotateablePump.cs" />
     <Compile Include="WallPumps.cs" />
     <Compile Include="WallPumpsConfig.cs" />
