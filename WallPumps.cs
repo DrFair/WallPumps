@@ -48,7 +48,7 @@ namespace WallPumps
     {
         public static void Postfix(Game __instance)
         {
-            Debug.Log(" === WallPumps v. 1.6 OnPrefabInit === ");
+            Debug.Log(" === WallPumps v. 2.0 OnPrefabInit === ");
         }
     }
 }
