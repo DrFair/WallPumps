@@ -18,7 +18,7 @@ namespace FairONI
                 if (list != null) index = list.IndexOf(parentID);
                 if (index == -1)
                 {
-                    Console.WriteLine(
+                    Console.WriteLine(string.Concat(
                         "ERROR: Building \"",
                         parentID,
                         "\" not found in category ",
@@ -26,7 +26,7 @@ namespace FairONI
                         ". Placing ",
                         buildingID,
                         " at the end of the list"
-                    );
+                    ));
                 } else
                 {
                     index++; // Next index
@@ -55,12 +55,12 @@ namespace FairONI
             int num = BUILDINGS.PLANORDER.FindIndex(x => x.category == category);
             if (num == -1)
             {
-                Console.WriteLine(
+                Console.WriteLine(string.Concat(
                     "ERROR: Can't add building ",
                     buildingID,
                     " to non-existing category ",
                     category
-                );
+                ));
             }
             return num;
         }
@@ -77,12 +77,12 @@ namespace FairONI
             int num = BUILDINGS.PLANORDER.FindIndex((PlanScreen.PlanInfo x) => x.category == category);
             if (num == -1)
             {
-                Console.WriteLine(
+                Console.WriteLine(string.Concat(
                     "ERROR: Can't add building ",
                     buildingID,
                     " to non-existing category ",
                     category
-                );
+                ));
             }
             return num;
         }
