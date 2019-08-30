@@ -14,7 +14,7 @@ namespace WallPumps
             if (WallPumpsConfig.GetConfig().gasWallVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasVent");
-                AddBuilding.IntoTechTree("ImprovedGasPiping", ID);
+                AddBuilding.IntoTechTree("GasPiping", ID);
             }
 
         }

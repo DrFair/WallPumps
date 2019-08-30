@@ -14,7 +14,7 @@ namespace WallPumps
             if (WallPumpsConfig.GetConfig().liquidWallVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("Plumbing", ID, "LiquidVent");
-                AddBuilding.IntoTechTree("ImprovedLiquidPiping", ID);
+                AddBuilding.IntoTechTree("LiquidPiping", ID);
             }
         }
 
