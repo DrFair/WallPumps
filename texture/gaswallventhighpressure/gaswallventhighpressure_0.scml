@@ -24,7 +24,7 @@
         <file id="20" name="suck_fx_14.png" width="48" height="42" pivot_x="0.5" pivot_y="0.5"/>
         <file id="21" name="suck_fx_16.png" width="28" height="26" pivot_x="0.5" pivot_y="0.5"/>
     </folder>
-    <entity id="0" name="fairgaspressurewallvent_kanim">
+    <entity id="0" name="fairgaswallventhighpressure_kanim">
         <animation id="0" name="on" length="33" interval="33">
             <mainline>
                 <key id="0">

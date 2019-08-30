@@ -23,7 +23,7 @@ namespace WallPumps
             GasWallPump.Setup();
             LiquidWallPump.Setup();
             GasWallVent.Setup();
-            GasWallPressureVent.Setup();
+            GasWallVentHighPressure.Setup();
             LiquidWallVent.Setup();
         }
     }

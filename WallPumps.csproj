@@ -69,7 +69,7 @@
     <Compile Include="FairONI\ElementUtils.cs" />
     <Compile Include="FairONI\FairONI.cs" />
     <Compile Include="LiquidWallVent.cs" />
-    <Compile Include="GasWallPressureVent.cs" />
+    <Compile Include="GasWallVentHighPressure.cs" />
     <Compile Include="GasWallVent.cs" />
     <Compile Include="LiquidWallPump.cs" />
     <Compile Include="GasWallPump.cs" />

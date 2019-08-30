@@ -4,13 +4,13 @@ using FairONI;
 
 namespace WallPumps
 {
-    public class GasWallPressureVent : IBuildingConfig
+    public class GasWallVentHighPressure : IBuildingConfig
     {
-        public const string ID = "FairGasWallPressureVent";
+        public const string ID = "FairGasWallVentHighPressure";
         
         public static void Setup()
         {
-            AddBuilding.AddStrings(ID, "Gas Wall Pressure Vent", "A high pressure gas vent that's also a wall", "Releases high pressure gas into a room");
+            AddBuilding.AddStrings(ID, "High Pressure Gas Wall Vent", "A high pressure gas vent that's also a wall", "Releases high pressure gas into a room");
             if (WallPumpsConfig.GetConfig().gasWallPressureVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasVentHighPressure");
@@ -25,7 +25,7 @@ namespace WallPumps
                 ID,
                 1,
                 1,
-                "fairgaspressurewallvent_kanim",
+                "fairgaswallventhighpressure_kanim",
                 30,
                 30f,
                 BUILDINGS.CONSTRUCTION_MASS_KG.TIER2,
