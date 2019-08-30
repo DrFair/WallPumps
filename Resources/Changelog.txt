@@ -1,4 +1,5 @@
 v. 2.0
+Renamed mod to Wall Pumps and Vents
 Added vanilla equivalents of wall gas and liquid vents.
 Changed configs file completely. This requires people to redo their config.
 Added database links to building descriptions.
