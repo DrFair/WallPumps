@@ -12,20 +12,48 @@ namespace WallPumps
         {
             if (_instance == null)
             {
-                ConfigUtils.LoadConfig("WallPumps", _instance = new WallPumpsConfig());
+                _instance = ConfigUtils.LoadConfig("WallPumps", new WallPumpsConfig());
             }
             return _instance;
         }
-
-        public float wallGasPumpEnergy = 120f;
-        public float wallGasPumpRate = 0.2f;
-
-        public float wallLiquidPumpEnergy = 120f;
-        public float wallLiquidPumpRate = 4f;
-
-        public float thermalConductivity = 1f;
+        
+        public WallPumpConfig gasWallPump = new WallPumpConfig(120, 0.2f, 1f);
+        public WallPumpConfig liquidWallPump = new WallPumpConfig(120, 4f, 1f);
+        public WallVentConfig gasWallVent = new WallVentConfig(2f, 1f);
+        public WallVentConfig gasWallPressureVent = new WallVentConfig(20f, 1f);
+        public WallVentConfig liquidWallVent = new WallVentConfig(1000f, 1f);
 
         // Example of child json object in config file. Remember object must be [Serializable] aswell.
         //public Dictionary<string, object> jsonObject = new Dictionary<string, object>();
+    }
+
+    [Serializable]
+    public class WallPumpConfig
+    {
+        public bool enabled = true;
+        public float energyConsumption;
+        public float pumpRate;
+        public float thermalConductivity;
+
+        public WallPumpConfig(float energyConsumption, float pumpRate, float thermalConductivity)
+        {
+            this.energyConsumption = energyConsumption;
+            this.pumpRate = pumpRate;
+            this.thermalConductivity = thermalConductivity;
+        }
+    }
+
+    [Serializable]
+    public class WallVentConfig
+    {
+        public bool enabled = true;
+        public float maxPressure;
+        public float thermalConductivity;
+
+        public WallVentConfig(float maxPressure, float thermalConductivity)
+        {
+            this.maxPressure = maxPressure;
+            this.thermalConductivity = thermalConductivity;
+        }
     }
 }

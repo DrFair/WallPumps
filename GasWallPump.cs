@@ -35,7 +35,7 @@ namespace WallPumps
             BuildingTemplates.CreateFoundationTileDef(def);
 
             def.RequiresPowerInput = true;
-            def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().wallGasPumpEnergy;
+            def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().gasWallPump.energyConsumption;
             def.ExhaustKilowattsWhenActive = 0f;
             def.SelfHeatKilowattsWhenActive = 0f;
             def.OutputConduitType = ConduitType.Gas;
@@ -46,7 +46,7 @@ namespace WallPumps
             def.UtilityOutputOffset = new CellOffset(0, 0);
             def.PermittedRotations = PermittedRotations.R360;
             // Tile properties
-            def.ThermalConductivity = WallPumpsConfig.GetConfig().thermalConductivity;
+            def.ThermalConductivity = WallPumpsConfig.GetConfig().gasWallPump.thermalConductivity;
             def.UseStructureTemperature = false;
             def.Entombable = false;
             def.BaseTimeUntilRepair = -1f;
@@ -86,10 +86,10 @@ namespace WallPumps
             go.AddOrGet<EnergyConsumer>();
             go.AddOrGet<RotatablePump>();
             Storage storage = go.AddOrGet<Storage>();
-            storage.capacityKg = WallPumpsConfig.GetConfig().wallGasPumpRate * 2;
+            storage.capacityKg = WallPumpsConfig.GetConfig().gasWallPump.pumpRate * 2;
             RotatableElementConsumer elementConsumer = go.AddOrGet<RotatableElementConsumer>();
             elementConsumer.configuration = ElementConsumer.Configuration.AllGas;
-            elementConsumer.consumptionRate = WallPumpsConfig.GetConfig().wallGasPumpRate;
+            elementConsumer.consumptionRate = WallPumpsConfig.GetConfig().gasWallPump.pumpRate;
             elementConsumer.storeOnConsume = true;
             elementConsumer.showInStatusPanel = false;
             elementConsumer.rotatableCellOffset = new Vector3(0, 1);

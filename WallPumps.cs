@@ -1,5 +1,5 @@
-﻿using Harmony;
-using FairONI;
+﻿using FairONI;
+using Harmony;
 
 namespace WallPumps
 {
@@ -15,13 +15,16 @@ namespace WallPumps
     {
         public static void Prefix()
         {
-            AddTags.AddStrings(WallPumps.WallMachineMaterial, "Wall Machine Material");
+            Debug.Log(" === WallPumps v. 2.0 LoadGeneratedBuildings === ");
 
-            GasWallPump.Setup();
-            LiquidWallPump.Setup();
-            GasWallVent.Setup();
-            GasWallPressureVent.Setup();
-            LiquidWallVent.Setup();
+            AddTags.AddStrings(WallPumps.WallMachineMaterial, "Wall Machine Material");
+            WallPumpsConfig config = WallPumpsConfig.GetConfig();
+
+            if (config.gasWallPump.enabled) GasWallPump.Setup();
+            if (config.liquidWallPump.enabled) LiquidWallPump.Setup();
+            if (config.gasWallVent.enabled) GasWallVent.Setup();
+            if (config.gasWallPressureVent.enabled) GasWallPressureVent.Setup();
+            if (config.liquidWallVent.enabled) LiquidWallVent.Setup();
         }
     }
 

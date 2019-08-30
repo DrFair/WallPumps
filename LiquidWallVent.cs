@@ -43,7 +43,7 @@ namespace WallPumps
             def.UtilityOutputOffset = new CellOffset(0, 1);
             def.PermittedRotations = PermittedRotations.R360;
             // Tile properties
-            def.ThermalConductivity = WallPumpsConfig.GetConfig().thermalConductivity;
+            def.ThermalConductivity = WallPumpsConfig.GetConfig().liquidWallVent.thermalConductivity;
             def.UseStructureTemperature = false;
             def.Entombable = false;
             def.BaseTimeUntilRepair = -1f;
@@ -61,7 +61,7 @@ namespace WallPumps
             Vent vent = go.AddOrGet<Vent>();
             vent.conduitType = ConduitType.Liquid;
             vent.endpointType = Endpoint.Sink;
-            vent.overpressureMass = 1000f;
+            vent.overpressureMass = WallPumpsConfig.GetConfig().liquidWallVent.maxPressure;
             ConduitConsumer conduitConsumer = go.AddOrGet<ConduitConsumer>();
             conduitConsumer.conduitType = ConduitType.Liquid;
             conduitConsumer.ignoreMinMassCheck = true;
