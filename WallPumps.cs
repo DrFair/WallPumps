@@ -1,10 +1,10 @@
 ﻿using FairONI;
 using Harmony;
 
-namespace WallPumpsAndVents
+namespace WallPumps
 {
 
-    public static class WallPumpsAndVents
+    public static class WallPumps
     {
         public static readonly Tag WallMachineRefinedMetals = TagManager.Create("WallMachineRefinedMetals");
         public static readonly Tag WallMachineMetals = TagManager.Create("WallMachineMetals");
@@ -16,11 +16,11 @@ namespace WallPumpsAndVents
     {
         public static void Prefix()
         {
-            Debug.Log(" === WallPumpsAndVents v. 2.0 LoadGeneratedBuildings === ");
+            Debug.Log(" === WallPumps v. 2.0 LoadGeneratedBuildings === ");
 
-            AddTags.AddStrings(WallPumpsAndVents.WallMachineRefinedMetals, "Wall Machine Refined Metals");
-            AddTags.AddStrings(WallPumpsAndVents.WallMachineMetals, "Wall Machine Metals");
-            WallPumpsAndVentsConfig config = WallPumpsAndVentsConfig.GetConfig();
+            AddTags.AddStrings(WallPumps.WallMachineRefinedMetals, "Wall Machine Refined Metals");
+            AddTags.AddStrings(WallPumps.WallMachineMetals, "Wall Machine Metals");
+            WallPumpsConfig config = WallPumpsConfig.GetConfig();
 
             GasWallPump.Setup();
             LiquidWallPump.Setup();
@@ -41,15 +41,15 @@ namespace WallPumpsAndVents
             {
                 if (e.HasTag(GameTags.RefinedMetal))
                 {
-                    ElementUtils.AddOreTag(e, WallPumpsAndVents.WallMachineRefinedMetals);
+                    ElementUtils.AddOreTag(e, WallPumps.WallMachineRefinedMetals);
                 }
                 if (e.HasTag(GameTags.Metal))
                 {
-                    ElementUtils.AddOreTag(e, WallPumpsAndVents.WallMachineMetals);
+                    ElementUtils.AddOreTag(e, WallPumps.WallMachineMetals);
                 }
             }
-            ElementUtils.AddOreTag(ElementLoader.FindElementByHash(SimHashes.SuperInsulator), WallPumpsAndVents.WallMachineRefinedMetals);
-            ElementUtils.AddOreTag(ElementLoader.FindElementByHash(SimHashes.SuperInsulator), WallPumpsAndVents.WallMachineMetals);
+            ElementUtils.AddOreTag(ElementLoader.FindElementByHash(SimHashes.SuperInsulator), WallPumps.WallMachineRefinedMetals);
+            ElementUtils.AddOreTag(ElementLoader.FindElementByHash(SimHashes.SuperInsulator), WallPumps.WallMachineMetals);
         }
     }
 
@@ -58,7 +58,7 @@ namespace WallPumpsAndVents
     {
         public static void Postfix(Game __instance)
         {
-            Debug.Log(" === WallPumpsAndVents v. 2.0 OnPrefabInit === ");
+            Debug.Log(" === WallPumps v. 2.0 OnPrefabInit === ");
         }
     }
 }

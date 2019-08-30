@@ -7,8 +7,8 @@
     <ProjectGuid>{40F24E73-E83E-4E8D-B919-63AAADE1BA09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WallPumpsAndVents</RootNamespace>
-    <AssemblyName>WallPumpsAndVents</AssemblyName>
+    <RootNamespace>WallPumps</RootNamespace>
+    <AssemblyName>WallPumps</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -77,8 +77,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RotatableExhaust.cs" />
     <Compile Include="RotateablePump.cs" />
-    <Compile Include="WallPumpsAndVents.cs" />
-    <Compile Include="WallPumpsAndVentsConfig.cs" />
+    <Compile Include="WallPumps.cs" />
+    <Compile Include="WallPumpsConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

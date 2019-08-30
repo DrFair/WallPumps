@@ -3,7 +3,7 @@ using TUNING;
 using FairONI;
 using STRINGS;
 
-namespace WallPumpsAndVents
+namespace WallPumps
 {
     public class GasWallPump : IBuildingConfig
     {
@@ -12,7 +12,7 @@ namespace WallPumpsAndVents
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "Gas Wall Pump", "A gas pump that's also a wall", "Pumps out " + UI.FormatAsLink("Gas", "ELEMENTS_GAS") + " from a room");
-            if (WallPumpsAndVentsConfig.GetConfig().gasWallPump.enabled)
+            if (WallPumpsConfig.GetConfig().gasWallPump.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasPump");
                 AddBuilding.IntoTechTree("ImprovedGasPiping", ID);
@@ -21,7 +21,7 @@ namespace WallPumpsAndVents
 
         public override BuildingDef CreateBuildingDef()
         {
-            string[] constructionMats = { WallPumpsAndVents.WallMachineRefinedMetals.Name };
+            string[] constructionMats = { WallPumps.WallMachineRefinedMetals.Name };
             BuildingDef def = BuildingTemplates.CreateBuildingDef(
                 ID,
                 1,
@@ -39,7 +39,7 @@ namespace WallPumpsAndVents
             BuildingTemplates.CreateFoundationTileDef(def);
 
             def.RequiresPowerInput = true;
-            def.EnergyConsumptionWhenActive = WallPumpsAndVentsConfig.GetConfig().gasWallPump.energyConsumption;
+            def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().gasWallPump.energyConsumption;
             def.ExhaustKilowattsWhenActive = 0f;
             def.SelfHeatKilowattsWhenActive = 0f;
             def.OutputConduitType = ConduitType.Gas;
@@ -50,7 +50,7 @@ namespace WallPumpsAndVents
             def.UtilityOutputOffset = new CellOffset(0, 0);
             def.PermittedRotations = PermittedRotations.R360;
             // Tile properties
-            def.ThermalConductivity = WallPumpsAndVentsConfig.GetConfig().gasWallPump.thermalConductivity;
+            def.ThermalConductivity = WallPumpsConfig.GetConfig().gasWallPump.thermalConductivity;
             def.UseStructureTemperature = false;
             def.Entombable = false;
             def.BaseTimeUntilRepair = -1f;
@@ -90,10 +90,10 @@ namespace WallPumpsAndVents
             go.AddOrGet<EnergyConsumer>();
             go.AddOrGet<RotatablePump>();
             Storage storage = go.AddOrGet<Storage>();
-            storage.capacityKg = WallPumpsAndVentsConfig.GetConfig().gasWallPump.pumpRate * 2;
+            storage.capacityKg = WallPumpsConfig.GetConfig().gasWallPump.pumpRate * 2;
             RotatableElementConsumer elementConsumer = go.AddOrGet<RotatableElementConsumer>();
             elementConsumer.configuration = ElementConsumer.Configuration.AllGas;
-            elementConsumer.consumptionRate = WallPumpsAndVentsConfig.GetConfig().gasWallPump.pumpRate;
+            elementConsumer.consumptionRate = WallPumpsConfig.GetConfig().gasWallPump.pumpRate;
             elementConsumer.storeOnConsume = true;
             elementConsumer.showInStatusPanel = false;
             elementConsumer.rotatableCellOffset = new Vector3(0, 1);

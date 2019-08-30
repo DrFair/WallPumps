@@ -2,7 +2,7 @@
 using UnityEngine;
 using Harmony;
 
-namespace WallPumpsAndVents
+namespace WallPumps
 {
 
     [SkipSaveFileSerialization]

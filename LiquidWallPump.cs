@@ -3,7 +3,7 @@ using TUNING;
 using FairONI;
 using STRINGS;
 
-namespace WallPumpsAndVents
+namespace WallPumps
 {
     public class LiquidWallPump : IBuildingConfig
     {
@@ -12,7 +12,7 @@ namespace WallPumpsAndVents
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "Liquid Wall Pump", "A liquid pump that's also a wall", "Pumps out " + UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID") + " from a room");
-            if (WallPumpsAndVentsConfig.GetConfig().liquidWallPump.enabled)
+            if (WallPumpsConfig.GetConfig().liquidWallPump.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("Plumbing", ID, "LiquidPump");
                 AddBuilding.IntoTechTree("ImprovedLiquidPiping", ID);
@@ -21,7 +21,7 @@ namespace WallPumpsAndVents
 
         public override BuildingDef CreateBuildingDef()
         {
-            string[] constructionMats = { WallPumpsAndVents.WallMachineRefinedMetals.Name };
+            string[] constructionMats = { WallPumps.WallMachineRefinedMetals.Name };
             BuildingDef def = BuildingTemplates.CreateBuildingDef(
                 ID,
                 1,
@@ -39,7 +39,7 @@ namespace WallPumpsAndVents
             BuildingTemplates.CreateFoundationTileDef(def);
 
             def.RequiresPowerInput = true;
-            def.EnergyConsumptionWhenActive = WallPumpsAndVentsConfig.GetConfig().liquidWallPump.energyConsumption;
+            def.EnergyConsumptionWhenActive = WallPumpsConfig.GetConfig().liquidWallPump.energyConsumption;
             def.ExhaustKilowattsWhenActive = 0f;
             def.SelfHeatKilowattsWhenActive = 0f;
             def.OutputConduitType = ConduitType.Liquid;
@@ -50,7 +50,7 @@ namespace WallPumpsAndVents
             def.UtilityOutputOffset = new CellOffset(0, 0);
             def.PermittedRotations = PermittedRotations.R360;
             // Tile properties
-            def.ThermalConductivity = WallPumpsAndVentsConfig.GetConfig().liquidWallPump.thermalConductivity;
+            def.ThermalConductivity = WallPumpsConfig.GetConfig().liquidWallPump.thermalConductivity;
             def.UseStructureTemperature = false;
             def.Entombable = false;
             def.BaseTimeUntilRepair = -1f;
@@ -90,10 +90,10 @@ namespace WallPumpsAndVents
             go.AddOrGet<EnergyConsumer>();
             go.AddOrGet<RotatablePump>();
             Storage storage = go.AddOrGet<Storage>();
-            storage.capacityKg = WallPumpsAndVentsConfig.GetConfig().liquidWallPump.pumpRate * 2;
+            storage.capacityKg = WallPumpsConfig.GetConfig().liquidWallPump.pumpRate * 2;
             RotatableElementConsumer elementConsumer = go.AddOrGet<RotatableElementConsumer>();
             elementConsumer.configuration = ElementConsumer.Configuration.AllLiquid;
-            elementConsumer.consumptionRate = WallPumpsAndVentsConfig.GetConfig().liquidWallPump.pumpRate;
+            elementConsumer.consumptionRate = WallPumpsConfig.GetConfig().liquidWallPump.pumpRate;
             elementConsumer.storeOnConsume = true;
             elementConsumer.showInStatusPanel = false;
             elementConsumer.rotatableCellOffset = new Vector3(0, 1);
