@@ -6,7 +6,8 @@ namespace WallPumps
 
     public static class WallPumps
     {
-        public static readonly Tag WallMachineMaterial = TagManager.Create("WallMachineMaterial");
+        public static readonly Tag WallMachineRefinedMetals = TagManager.Create("WallMachineRefinedMetals");
+        public static readonly Tag WallMachineMetals = TagManager.Create("WallMachineMetals");
     }
 
     [HarmonyPatch(typeof(GeneratedBuildings))]
@@ -17,7 +18,8 @@ namespace WallPumps
         {
             Debug.Log(" === WallPumps v. 2.0 LoadGeneratedBuildings === ");
 
-            AddTags.AddStrings(WallPumps.WallMachineMaterial, "Wall Machine Material");
+            AddTags.AddStrings(WallPumps.WallMachineRefinedMetals, "Wall Machine Refined Metals");
+            AddTags.AddStrings(WallPumps.WallMachineMetals, "Wall Machine Metals");
             WallPumpsConfig config = WallPumpsConfig.GetConfig();
 
             GasWallPump.Setup();
@@ -39,10 +41,15 @@ namespace WallPumps
             {
                 if (e.HasTag(GameTags.RefinedMetal))
                 {
-                    ElementUtils.AddOreTag(e, WallPumps.WallMachineMaterial);
+                    ElementUtils.AddOreTag(e, WallPumps.WallMachineRefinedMetals);
+                }
+                if (e.HasTag(GameTags.Metal))
+                {
+                    ElementUtils.AddOreTag(e, WallPumps.WallMachineMetals);
                 }
             }
-            ElementUtils.AddOreTag(ElementLoader.FindElementByHash(SimHashes.SuperInsulator), WallPumps.WallMachineMaterial);
+            ElementUtils.AddOreTag(ElementLoader.FindElementByHash(SimHashes.SuperInsulator), WallPumps.WallMachineRefinedMetals);
+            ElementUtils.AddOreTag(ElementLoader.FindElementByHash(SimHashes.SuperInsulator), WallPumps.WallMachineMetals);
         }
     }
 

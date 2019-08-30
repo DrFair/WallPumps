@@ -20,7 +20,7 @@ namespace WallPumps
 
         public override BuildingDef CreateBuildingDef()
         {
-            string[] constructionMats = { WallPumps.WallMachineMaterial.Name };
+            string[] constructionMats = { WallPumps.WallMachineRefinedMetals.Name };
             BuildingDef def = BuildingTemplates.CreateBuildingDef(
                 ID,
                 1,

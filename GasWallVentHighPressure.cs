@@ -20,7 +20,15 @@ namespace WallPumps
 
         public override BuildingDef CreateBuildingDef()
         {
-            string[] constructionMats = { WallPumps.WallMachineMaterial.Name };
+            string[] constructionMats = {
+                WallPumps.WallMachineRefinedMetals.Name,
+                MATERIALS.PLASTIC
+            };
+            float[] constructionMass =
+            {
+                BUILDINGS.CONSTRUCTION_MASS_KG.TIER3[0],
+                BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0]
+            };
             BuildingDef def = BuildingTemplates.CreateBuildingDef(
                 ID,
                 1,
@@ -28,7 +36,7 @@ namespace WallPumps
                 "fairgaswallventhighpressure_kanim",
                 30,
                 30f,
-                BUILDINGS.CONSTRUCTION_MASS_KG.TIER2,
+                constructionMass,
                 constructionMats,
                 1600f,
                 BuildLocationRule.Tile,
