@@ -1,3 +1,8 @@
+v. 2.0
+Added vanilla equivalents of wall gas and liquid vents.
+Changed configs file completely. This requires people to redo their config.
+Added database links to building descriptions.
+
 v. 1.6
 Added thermalConductivity to config file. Reduce to make pumps more insulated.
 Added insulation as construction material for late game pumps.
