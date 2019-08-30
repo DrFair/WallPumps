@@ -1,7 +1,7 @@
 ﻿using System;
 using Harmony;
 
-namespace WallPumps
+namespace WallPumpsAndVents
 {
     public class RotatablePump : Pump
     {

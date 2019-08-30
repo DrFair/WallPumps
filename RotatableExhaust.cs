@@ -1,7 +1,7 @@
 ﻿using Harmony;
 using UnityEngine;
 
-namespace WallPumps
+namespace WallPumpsAndVents
 {
     public class RotatableExhaust : Exhaust
     {

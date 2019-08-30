@@ -1,18 +1,18 @@
 ﻿using System;
 using FairONI;
 
-namespace WallPumps
+namespace WallPumpsAndVents
 {
     [Serializable]
-    public class WallPumpsConfig
+    public class WallPumpsAndVentsConfig
     {
 
-        private static WallPumpsConfig _instance = null;
-        public static WallPumpsConfig GetConfig()
+        private static WallPumpsAndVentsConfig _instance = null;
+        public static WallPumpsAndVentsConfig GetConfig()
         {
             if (_instance == null)
             {
-                _instance = ConfigUtils.LoadConfig("WallPumps", new WallPumpsConfig());
+                _instance = ConfigUtils.LoadConfig("WallPumpsAndVents", new WallPumpsAndVentsConfig());
             }
             return _instance;
         }

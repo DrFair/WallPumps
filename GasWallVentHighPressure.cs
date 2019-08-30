@@ -3,7 +3,7 @@ using TUNING;
 using FairONI;
 using STRINGS;
 
-namespace WallPumps
+namespace WallPumpsAndVents
 {
     public class GasWallVentHighPressure : IBuildingConfig
     {
@@ -12,7 +12,7 @@ namespace WallPumps
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "High Pressure Gas Wall Vent", "A high pressure gas vent that's also a wall", "Releases high pressure " + UI.FormatAsLink("Gas", "ELEMENTS_GAS") + " into a room");
-            if (WallPumpsConfig.GetConfig().gasWallPressureVent.enabled)
+            if (WallPumpsAndVentsConfig.GetConfig().gasWallPressureVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasVentHighPressure");
                 AddBuilding.IntoTechTree("ImprovedGasPiping", ID);
@@ -22,7 +22,7 @@ namespace WallPumps
         public override BuildingDef CreateBuildingDef()
         {
             string[] constructionMats = {
-                WallPumps.WallMachineRefinedMetals.Name,
+                WallPumpsAndVents.WallMachineRefinedMetals.Name,
                 MATERIALS.PLASTIC
             };
             float[] constructionMass =
@@ -55,7 +55,7 @@ namespace WallPumps
             def.UtilityOutputOffset = new CellOffset(0, 1);
             def.PermittedRotations = PermittedRotations.R360;
             // Tile properties
-            def.ThermalConductivity = WallPumpsConfig.GetConfig().gasWallPressureVent.thermalConductivity;
+            def.ThermalConductivity = WallPumpsAndVentsConfig.GetConfig().gasWallPressureVent.thermalConductivity;
             def.UseStructureTemperature = false;
             def.Entombable = false;
             def.BaseTimeUntilRepair = -1f;
@@ -73,7 +73,7 @@ namespace WallPumps
             Vent vent = go.AddOrGet<Vent>();
             vent.conduitType = ConduitType.Gas;
             vent.endpointType = Endpoint.Sink;
-            vent.overpressureMass = WallPumpsConfig.GetConfig().gasWallPressureVent.maxPressure;
+            vent.overpressureMass = WallPumpsAndVentsConfig.GetConfig().gasWallPressureVent.maxPressure;
             ConduitConsumer conduitConsumer = go.AddOrGet<ConduitConsumer>();
             conduitConsumer.conduitType = ConduitType.Gas;
             conduitConsumer.ignoreMinMassCheck = true;

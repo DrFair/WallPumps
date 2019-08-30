@@ -3,7 +3,7 @@ using TUNING;
 using FairONI;
 using STRINGS;
 
-namespace WallPumps
+namespace WallPumpsAndVents
 {
     public class LiquidWallVent : IBuildingConfig
     {
@@ -12,7 +12,7 @@ namespace WallPumps
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "Liquid Wall Vent", "A liquid vent that's also a wall", "Releases " + UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID") + " into a room");
-            if (WallPumpsConfig.GetConfig().liquidWallVent.enabled)
+            if (WallPumpsAndVentsConfig.GetConfig().liquidWallVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("Plumbing", ID, "LiquidVent");
                 AddBuilding.IntoTechTree("LiquidPiping", ID);
@@ -21,7 +21,7 @@ namespace WallPumps
 
         public override BuildingDef CreateBuildingDef()
         {
-            string[] constructionMats = { WallPumps.WallMachineMetals.Name };
+            string[] constructionMats = { WallPumpsAndVents.WallMachineMetals.Name };
             BuildingDef def = BuildingTemplates.CreateBuildingDef(
                 ID,
                 1,
@@ -47,7 +47,7 @@ namespace WallPumps
             def.UtilityOutputOffset = new CellOffset(0, 1);
             def.PermittedRotations = PermittedRotations.R360;
             // Tile properties
-            def.ThermalConductivity = WallPumpsConfig.GetConfig().liquidWallVent.thermalConductivity;
+            def.ThermalConductivity = WallPumpsAndVentsConfig.GetConfig().liquidWallVent.thermalConductivity;
             def.UseStructureTemperature = false;
             def.Entombable = false;
             def.BaseTimeUntilRepair = -1f;
@@ -65,7 +65,7 @@ namespace WallPumps
             Vent vent = go.AddOrGet<Vent>();
             vent.conduitType = ConduitType.Liquid;
             vent.endpointType = Endpoint.Sink;
-            vent.overpressureMass = WallPumpsConfig.GetConfig().liquidWallVent.maxPressure;
+            vent.overpressureMass = WallPumpsAndVentsConfig.GetConfig().liquidWallVent.maxPressure;
             ConduitConsumer conduitConsumer = go.AddOrGet<ConduitConsumer>();
             conduitConsumer.conduitType = ConduitType.Liquid;
             conduitConsumer.ignoreMinMassCheck = true;
