@@ -22,9 +22,6 @@ namespace WallPumps
         public WallVentConfig gasWallVent = new WallVentConfig(2f, 1f);
         public WallVentConfig gasWallPressureVent = new WallVentConfig(20f, 1f);
         public WallVentConfig liquidWallVent = new WallVentConfig(1000f, 1f);
-
-        // Example of child json object in config file. Remember object must be [Serializable] aswell.
-        //public Dictionary<string, object> jsonObject = new Dictionary<string, object>();
     }
 
     [Serializable]

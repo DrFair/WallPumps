@@ -11,8 +11,12 @@ namespace WallPumps
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "Gas Wall Vent", "A gas vent that's also a wall", "Releases gas into a room");
-            AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasVent");
-            AddBuilding.IntoTechTree("ImprovedGasPiping", ID);
+            if (WallPumpsConfig.GetConfig().gasWallVent.enabled)
+            {
+                AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasVent");
+                AddBuilding.IntoTechTree("ImprovedGasPiping", ID);
+            }
+
         }
 
         public override BuildingDef CreateBuildingDef()

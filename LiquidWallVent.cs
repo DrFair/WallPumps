@@ -11,8 +11,11 @@ namespace WallPumps
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "Liquid Wall Vent", "A liquid vent that's also a wall", "Releases liquid into a room");
-            AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "LiquidVent");
-            AddBuilding.IntoTechTree("ImprovedLiquidPiping", ID);
+            if (WallPumpsConfig.GetConfig().liquidWallVent.enabled)
+            {
+                AddBuilding.AddBuildingToPlanScreen("Plumbing", ID, "LiquidVent");
+                AddBuilding.IntoTechTree("ImprovedLiquidPiping", ID);
+            }
         }
 
         public override BuildingDef CreateBuildingDef()

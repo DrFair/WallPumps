@@ -20,11 +20,11 @@ namespace WallPumps
             AddTags.AddStrings(WallPumps.WallMachineMaterial, "Wall Machine Material");
             WallPumpsConfig config = WallPumpsConfig.GetConfig();
 
-            if (config.gasWallPump.enabled) GasWallPump.Setup();
-            if (config.liquidWallPump.enabled) LiquidWallPump.Setup();
-            if (config.gasWallVent.enabled) GasWallVent.Setup();
-            if (config.gasWallPressureVent.enabled) GasWallPressureVent.Setup();
-            if (config.liquidWallVent.enabled) LiquidWallVent.Setup();
+            GasWallPump.Setup();
+            LiquidWallPump.Setup();
+            GasWallVent.Setup();
+            GasWallPressureVent.Setup();
+            LiquidWallVent.Setup();
         }
     }
 
