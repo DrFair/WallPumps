@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TUNING;
 using FairONI;
+using STRINGS;
 
 namespace WallPumps
 {
@@ -10,7 +11,7 @@ namespace WallPumps
         
         public static void Setup()
         {
-            AddBuilding.AddStrings(ID, "Liquid Wall Pump", "A liquid pump that's also a wall", "Pumps out liquid from a room");
+            AddBuilding.AddStrings(ID, "Liquid Wall Pump", "A liquid pump that's also a wall", "Pumps out " + UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID") + " from a room");
             if (WallPumpsConfig.GetConfig().liquidWallPump.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("Plumbing", ID, "LiquidPump");
@@ -28,11 +29,11 @@ namespace WallPumps
                 "fairliquidwallpump_kanim",
                 30,
                 30f,
-                BUILDINGS.CONSTRUCTION_MASS_KG.TIER2,
+                TUNING.BUILDINGS.CONSTRUCTION_MASS_KG.TIER2,
                 constructionMats,
                 1600f,
                 BuildLocationRule.Tile,
-                BUILDINGS.DECOR.PENALTY.TIER1,
+                TUNING.BUILDINGS.DECOR.PENALTY.TIER1,
                 NOISE_POLLUTION.NOISY.TIER2,
                 0.2f);
             BuildingTemplates.CreateFoundationTileDef(def);

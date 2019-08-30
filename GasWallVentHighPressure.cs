@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TUNING;
 using FairONI;
+using STRINGS;
 
 namespace WallPumps
 {
@@ -10,7 +11,7 @@ namespace WallPumps
         
         public static void Setup()
         {
-            AddBuilding.AddStrings(ID, "High Pressure Gas Wall Vent", "A high pressure gas vent that's also a wall", "Releases high pressure gas into a room");
+            AddBuilding.AddStrings(ID, "High Pressure Gas Wall Vent", "A high pressure gas vent that's also a wall", "Releases high pressure " + UI.FormatAsLink("Gas", "ELEMENTS_GAS") + " into a room");
             if (WallPumpsConfig.GetConfig().gasWallPressureVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasVentHighPressure");
@@ -26,8 +27,8 @@ namespace WallPumps
             };
             float[] constructionMass =
             {
-                BUILDINGS.CONSTRUCTION_MASS_KG.TIER3[0],
-                BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0]
+                TUNING.BUILDINGS.CONSTRUCTION_MASS_KG.TIER3[0],
+                TUNING.BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0]
             };
             BuildingDef def = BuildingTemplates.CreateBuildingDef(
                 ID,
@@ -40,7 +41,7 @@ namespace WallPumps
                 constructionMats,
                 1600f,
                 BuildLocationRule.Tile,
-                BUILDINGS.DECOR.PENALTY.TIER1,
+                TUNING.BUILDINGS.DECOR.PENALTY.TIER1,
                 NOISE_POLLUTION.NONE,
                 0.2f);
             BuildingTemplates.CreateFoundationTileDef(def);

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TUNING;
 using FairONI;
+using STRINGS;
 
 namespace WallPumps
 {
@@ -10,7 +11,7 @@ namespace WallPumps
         
         public static void Setup()
         {
-            AddBuilding.AddStrings(ID, "Gas Wall Vent", "A gas vent that's also a wall", "Releases gas into a room");
+            AddBuilding.AddStrings(ID, "Gas Wall Vent", "A gas vent that's also a wall", "Releases " + UI.FormatAsLink("Gas", "ELEMENTS_GAS") + " into a room");
             if (WallPumpsConfig.GetConfig().gasWallVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasVent");
@@ -29,11 +30,11 @@ namespace WallPumps
                 "fairgaswallvent_kanim",
                 30,
                 30f,
-                BUILDINGS.CONSTRUCTION_MASS_KG.TIER1,
+                TUNING.BUILDINGS.CONSTRUCTION_MASS_KG.TIER1,
                 constructionMats,
                 1600f,
                 BuildLocationRule.Tile,
-                BUILDINGS.DECOR.PENALTY.TIER1,
+                TUNING.BUILDINGS.DECOR.PENALTY.TIER1,
                 NOISE_POLLUTION.NONE,
                 0.2f);
             BuildingTemplates.CreateFoundationTileDef(def);
