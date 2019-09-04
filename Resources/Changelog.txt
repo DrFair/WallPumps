@@ -1,3 +1,6 @@
+v. 2.1
+Updated mod to work with new game version 364722.
+
 v. 2.0
 Added vanilla equivalents of wall gas and liquid vents.
 Changed configs file completely. This requires people to redo their config.
