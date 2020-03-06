@@ -60,7 +60,8 @@ namespace WallPumps
 
         public override void ConfigureBuildingTemplate(GameObject go, Tag prefab_tag)
         {
-            GeneratedBuildings.MakeBuildingAlwaysOperational(go);
+            GeneratedBuildings.RegisterSingleLogicInputPort(go);
+            go.AddOrGet<LogicOperationalController>();
             go.AddOrGet<RotatableExhaust>();
             Vent vent = go.AddOrGet<Vent>();
             vent.conduitType = ConduitType.Liquid;

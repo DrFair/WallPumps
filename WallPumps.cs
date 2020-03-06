@@ -16,7 +16,7 @@ namespace WallPumps
     {
         public static void Prefix()
         {
-            Debug.Log(" === WallPumps v. 2.1 LoadGeneratedBuildings === ");
+            Debug.Log(" === WallPumps v. 2.2 LoadGeneratedBuildings === ");
 
             AddTags.AddStrings(WallPumps.WallMachineRefinedMetals, "Wall Machine Refined Metals");
             AddTags.AddStrings(WallPumps.WallMachineMetals, "Wall Machine Metals");
@@ -58,7 +58,7 @@ namespace WallPumps
     {
         public static void Postfix(Game __instance)
         {
-            Debug.Log(" === WallPumps v. 2.1 OnPrefabInit === ");
+            Debug.Log(" === WallPumps v. 2.2 OnPrefabInit === ");
         }
     }
 }

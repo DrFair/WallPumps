@@ -85,7 +85,7 @@ namespace WallPumps
         {
             //go.AddOrGetDef<StorageController.Def>();
 
-            GeneratedBuildings.RegisterLogicPorts(go, LogicOperationalController.INPUT_PORTS_0_0);
+            GeneratedBuildings.RegisterSingleLogicInputPort(go);
             go.AddOrGet<LogicOperationalController>();
             go.AddOrGet<EnergyConsumer>();
             go.AddOrGet<RotatablePump>();
