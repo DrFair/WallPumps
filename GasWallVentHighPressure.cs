@@ -12,6 +12,10 @@ namespace WallPumps
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "High Pressure Gas Wall Vent", "A high pressure gas vent that's also a wall", "Releases high pressure " + UI.FormatAsLink("Gas", "ELEMENTS_GAS") + " into a room");
+        }
+
+        public static void AddToMenus()
+        {
             if (WallPumpsConfig.GetConfig().gasWallPressureVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasVentHighPressure");

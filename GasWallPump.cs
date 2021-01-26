@@ -12,6 +12,10 @@ namespace WallPumps
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "Gas Wall Pump", "A gas pump that's also a wall", "Pumps out " + UI.FormatAsLink("Gas", "ELEMENTS_GAS") + " from a room");
+        }
+
+        public static void AddToMenus()
+        {
             if (WallPumpsConfig.GetConfig().gasWallPump.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("HVAC", ID, "GasPump");

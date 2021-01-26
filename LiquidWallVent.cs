@@ -12,6 +12,10 @@ namespace WallPumps
         public static void Setup()
         {
             AddBuilding.AddStrings(ID, "Liquid Wall Vent", "A liquid vent that's also a wall", "Releases " + UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID") + " into a room");
+        }
+
+        public static void AddToMenus()
+        {
             if (WallPumpsConfig.GetConfig().liquidWallVent.enabled)
             {
                 AddBuilding.AddBuildingToPlanScreen("Plumbing", ID, "LiquidVent");
