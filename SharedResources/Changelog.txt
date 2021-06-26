@@ -1,3 +1,13 @@
+v. 2.4
+Updated mod to work with new game version 469369.
+
+v. 2.3
+Updated mod to support Spaced Out DLC.
+
+v. 2.2
+Update mod to work with Automation Innovation Pack.
+Added automation to inputs to vents, just like new vanilla vents.
+
 v. 2.1
 Updated mod to work with new game version 364722.
 
