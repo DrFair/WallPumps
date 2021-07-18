@@ -1,2 +1,5 @@
 supportedContent: VANILLA_ID
-minimumSupportedBuild: 447596
+minimumSupportedBuild: 471883
+APIVersion: 2
+version: "2.5"
+staticID: WallPumps

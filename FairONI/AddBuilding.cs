@@ -67,18 +67,11 @@ namespace FairONI
 
         public static void IntoTechTree(string tech, string buildingID)
         {
-#if VANILLA
-            List<string> list = new List<string>(Techs.TECH_GROUPING[tech]);
-            list.Insert(1, buildingID);
-            Techs.TECH_GROUPING[tech] = list.ToArray();
-#endif
-#if SPACED_OUT
             Tech techObj = Db.Get().Techs.TryGet(tech);
             if (techObj != null)
             {
                 techObj.unlockedItemIDs.Add(buildingID);
             }
-#endif
         }
 
         private static int GetTechCategoryIndex(HashedString category, string buildingID)

@@ -3,7 +3,6 @@ using HarmonyLib;
 
 namespace WallPumps
 {
-#if SPACED_OUT
     public class WallPumps : KMod.UserMod2
     {
         public static readonly Tag WallMachineRefinedMetals = TagManager.Create("WallMachineRefinedMetals");
@@ -11,53 +10,34 @@ namespace WallPumps
 
         public override void OnLoad(Harmony harmony)
         {
-            Debug.Log(" === WallPumps v. 2.4 OnLoad === ");
+            Debug.Log(" === WallPumps v. 2.5 OnLoad === ");
             harmony.PatchAll();
         }
     }
-#endif
-#if VANILLA
-    public static class WallPumps : KMod.UserMod2
-    {
-        public static readonly Tag WallMachineRefinedMetals = TagManager.Create("WallMachineRefinedMetals");
-        public static readonly Tag WallMachineMetals = TagManager.Create("WallMachineMetals");
-    }
-#endif
     [HarmonyPatch(typeof(Db))]
     [HarmonyPatch("Initialize")]
     public static class Db_Initialize_Patch
     {
         public static void Prefix()
         {
-            Debug.Log(" === WallPumps v. 2.4 Db_Initialize Prefix === ");
+            Debug.Log(" === WallPumps v. 2.5 Db_Initialize Prefix === ");
 
             AddTags.AddStrings(WallPumps.WallMachineRefinedMetals, "Wall Machine Refined Metals");
             AddTags.AddStrings(WallPumps.WallMachineMetals, "Wall Machine Metals");
             WallPumpsConfig config = WallPumpsConfig.GetConfig();
-
-            // Vanilla prefers prefix for adding buildings
-#if VANILLA
-            GasWallPump.Setup();
-            LiquidWallPump.Setup();
-            GasWallVent.Setup();
-            GasWallVentHighPressure.Setup();
-            LiquidWallVent.Setup();
-#endif
         }
 
         public static void Postfix()
         {
-            Debug.Log(" === WallPumps v. 2.4 Db_Initialize Postfix === ");
-            // DLC prefers postfix for adding buildings
-#if SPACED_OUT
+            Debug.Log(" === WallPumps v. 2.5 Db_Initialize Postfix === ");
+            // Add buildings
             GasWallPump.Setup();
             LiquidWallPump.Setup();
             GasWallVent.Setup();
             GasWallVentHighPressure.Setup();
             LiquidWallVent.Setup();
-#endif
 
-            // Both Vanilla and DLC prefer postfix for adding tech tree/building menu entries
+            // Add tech tree/building menu entries
             GasWallPump.AddToMenus();
             LiquidWallPump.AddToMenus();
             GasWallVent.AddToMenus();
@@ -94,7 +74,7 @@ namespace WallPumps
     //{
     //    public static void Postfix(Game __instance)
     //    {
-    //        Debug.Log(" === WallPumps v. 2.4 OnPrefabInit === ");
+    //        Debug.Log(" === WallPumps v. 2.5 OnPrefabInit === ");
     //    }
     //}
 }
