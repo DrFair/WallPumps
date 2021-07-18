@@ -1,3 +1,6 @@
+v. 2.5
+Updated vanilla version to work with new game version 471883.
+
 v. 2.4
 Updated mod to work with new game version 469369.
 
