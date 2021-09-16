@@ -1,5 +1,5 @@
 supportedContent: EXPANSION1_ID
-minimumSupportedBuild: 469369
+minimumSupportedBuild: 478755
 APIVersion: 2
-version: "2.5"
+version: "2.6"
 staticID: WallPumps

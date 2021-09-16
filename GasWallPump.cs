@@ -61,7 +61,6 @@ namespace WallPumps
             def.ObjectLayer = ObjectLayer.Building;
             def.SceneLayer = Grid.SceneLayer.TileMain;
             def.ForegroundLayer = Grid.SceneLayer.TileMain;
-            def.isSolidTile = true;
             return def;
         }
 
