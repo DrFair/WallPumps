@@ -112,14 +112,13 @@ namespace WallPumps
 
         private static void AddVisualizer(GameObject go, bool movable)
         {
-            StationaryChoreRangeVisualizer stationaryChoreRangeVisualizer = go.AddOrGet<StationaryChoreRangeVisualizer>();
-            Rotatable rotatable = go.AddOrGet<Rotatable>();
-            CellOffset offset = Rotatable.GetRotatedCellOffset(new CellOffset(0, 1), rotatable.GetOrientation());
-            stationaryChoreRangeVisualizer.x = offset.x;
-            stationaryChoreRangeVisualizer.y = offset.y;
-            stationaryChoreRangeVisualizer.width = 1;
-            stationaryChoreRangeVisualizer.height = 1;
-            stationaryChoreRangeVisualizer.movable = movable;
+            RangeVisualizer _RangeVisualizer = go.AddOrGet<RangeVisualizer>();
+
+            _RangeVisualizer.OriginOffset = new Vector2I(0, 1);
+            _RangeVisualizer.RangeMin.x = 0;
+            _RangeVisualizer.RangeMin.y = 0;
+            _RangeVisualizer.RangeMax.x = 0;
+            _RangeVisualizer.RangeMax.y = 0;
         }
     }
 }
