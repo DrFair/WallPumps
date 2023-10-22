@@ -20,7 +20,7 @@ namespace WallPumps
     {
         public static void Prefix()
         {
-            Debug.Log(" === WallPumps v. 2.6 Db_Initialize Prefix === ");
+            Debug.Log(" === WallPumps v. 2.7 Db_Initialize Prefix === ");
 
             AddTags.AddStrings(WallPumps.WallMachineRefinedMetals, "Wall Machine Refined Metals");
             AddTags.AddStrings(WallPumps.WallMachineMetals, "Wall Machine Metals");
@@ -29,7 +29,7 @@ namespace WallPumps
 
         public static void Postfix()
         {
-            Debug.Log(" === WallPumps v. 2.6 Db_Initialize Postfix === ");
+            Debug.Log(" === WallPumps v. 2.7 Db_Initialize Postfix === ");
             // Add buildings
             GasWallPump.Setup();
             LiquidWallPump.Setup();
